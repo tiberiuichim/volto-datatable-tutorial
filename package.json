@@ -1,0 +1,16 @@
+{
+  "name": "@plone/datatable-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@eeacms/volto-blocks-form": "eea/volto-blocks-form#0.5.2",
+    "@eeacms/volto-object-widget": "eea/volto-object-widget#0.2.3",
+    "papaparse": "5.3.0"
+  }
+}

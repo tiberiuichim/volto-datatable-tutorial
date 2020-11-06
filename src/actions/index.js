@@ -1,0 +1,1 @@
+export { getRawContent } from './rawdata';

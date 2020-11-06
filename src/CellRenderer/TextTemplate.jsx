@@ -9,7 +9,6 @@ TextTemplateRenderer.schemaExtender = (schema) => {
   };
   schema.fieldsets[0].fields.push('textTemplate');
 
-  console.log('schema', schema);
   return schema;
 };
 

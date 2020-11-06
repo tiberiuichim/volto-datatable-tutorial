@@ -41,8 +41,6 @@ export default (config) => {
     },
   };
 
-  console.log('config', config);
-
   if (!config.widgets.widget.pick_object)
     config.widgets.widget.pick_object = ObjectBrowserWidgetMode('link');
 

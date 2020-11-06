@@ -123,7 +123,7 @@ const ColumnSchema = (props) => ({
       choices: [],
     },
     renderer: {
-      title: 'Renderer',
+      title: 'Format',
       choices: [],
     },
   },

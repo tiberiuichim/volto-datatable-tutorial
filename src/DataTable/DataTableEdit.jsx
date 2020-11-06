@@ -16,10 +16,10 @@ import './datatable-edit.less';
 
 // Note: we use `file_path` instead of `url` because we're dealing with an
 // Array. This is a limitation of the current state of the ObjectBrowserWidget
-//
-//
-const mutateSchema = (schema, data, file_data) => {
-  const ColumnsSchema = schema.properties.columns.schema;
+
+const tweakSchema = (schema, data, file_data) => {
+  const columnsField = schema.properties.columns;
+  const ColumnsSchema = columnsField.schema;
 
   const columns = (file_data?.meta?.fields || []).sort().map((n) => [n, n]);
   ColumnsSchema.properties.column.choices = columns;
@@ -31,18 +31,20 @@ const mutateSchema = (schema, data, file_data) => {
   ]);
   ColumnsSchema.properties.renderer.choices = renderers;
 
-  const extension = data.renderer
-    ? cellRenderers[data.renderer].schemaExtender
-    : null;
-  console.log(data, data.renderer, cellRenderers[data.renderer]);
-  if (extension) schema.properties.columns.schema = extension(ColumnsSchema);
+  columnsField.schemaExtender = (schema, data) => {
+    const extension = data.renderer
+      ? cellRenderers[data.renderer].schemaExtender
+      : null;
+    return extension ? extension(schema, data) : schema;
+  };
+
   return schema;
 };
 
 const DataTableEdit = (props) => {
   const { selected, onChangeBlock, block, data, file_data } = props;
 
-  const schema = mutateSchema(TableSchema(props), data, file_data);
+  const schema = tweakSchema(TableSchema(props), data, file_data);
 
   return (
     <>

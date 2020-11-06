@@ -1,4 +1,5 @@
 import { defineMessages } from 'react-intl';
+import { blocks } from '~/config';
 
 const messages = defineMessages({
   fixed: {
@@ -87,8 +88,8 @@ export const TableSchema = ({ intl }) => ({
     columns: {
       title: 'Columns',
       description: 'Leave empty to show all columns',
-      schema: ColumnSchema({ intl }),
       widget: 'object_list_inline',
+      schema: ColumnSchema({ intl }),
     },
   },
 

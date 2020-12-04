@@ -1,5 +1,4 @@
 import { defineMessages } from 'react-intl';
-import { blocks } from '~/config';
 
 const messages = defineMessages({
   fixed: {

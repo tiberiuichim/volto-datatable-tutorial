@@ -36,7 +36,6 @@ export default (config) => {
         id: 'progress',
         title: 'Progress',
         view: ProgressCellRenderer,
-        schemaExtender: ProgressCellRenderer.schemaExtender,
       },
     },
   };

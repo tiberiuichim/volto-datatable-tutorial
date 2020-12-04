@@ -14,8 +14,7 @@ TextTemplateRenderer.schemaExtender = (schema, data) => {
     description: 'Add suffix/prefix to text. Use {} for value placeholder',
   };
 
-  if (!schema.fieldsets[0].fields.includes('textTemplate'))
-    schema.fieldsets[0].fields.push('textTemplate');
+  schema.fieldsets[0].fields.push('textTemplate');
 
   return schema;
 };
